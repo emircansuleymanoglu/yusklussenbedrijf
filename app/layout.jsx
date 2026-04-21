@@ -1,17 +1,18 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Yus Klussenbedrijf | Renovatie, montage en onderhoud",
+  title: "Yus Klussenbedrijf | Stucwerk, schilderwerk en renovatie",
   description:
-    "Professioneel klusbedrijf voor renovatie, montage, onderhoud en afwerking in Nederland. Vraag snel een vrijblijvende offerte aan.",
+    "Professioneel klusbedrijf voor stucwerk, schilderwerk, timmerwerk, vloerverwarming en renovatie in Nederland. Vraag snel een vrijblijvende offerte aan.",
   keywords: [
     "klusbedrijf",
     "renovatie",
-    "montage",
+    "stucwerk",
+    "timmerwerk",
     "onderhoud",
     "schilderwerk",
+    "vloerverwarming",
     "badkamer renovatie",
-    "keuken montage",
   ],
   openGraph: {
     title: "Yus Klussenbedrijf",

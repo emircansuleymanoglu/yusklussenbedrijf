@@ -5,7 +5,7 @@ import {
   ArrowRight,
   Check,
   Clock3,
-  Hammer,
+  Heater,
   Mail,
   MapPin,
   MessageCircle,
@@ -15,7 +15,6 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  Wrench,
 } from "lucide-react";
 
 const phone = "+31 6 12345678";
@@ -24,24 +23,24 @@ const email = "info@yusklussenbedrijf.nl";
 
 const services = [
   {
-    icon: Hammer,
-    title: "Renovatie",
-    text: "Badkamer, keuken en woningrenovatie met een duidelijke planning en nette oplevering.",
-  },
-  {
-    icon: Ruler,
-    title: "Montage",
-    text: "Keukens, deuren, kozijnen, meubels en maatwerk zorgvuldig gemonteerd.",
+    icon: Sparkles,
+    title: "Stucwerk",
+    text: "Strakke wanden en plafonds, sausklaar of behangklaar afgewerkt met oog voor detail.",
   },
   {
     icon: Paintbrush,
-    title: "Afwerking",
-    text: "Schilderwerk, wanden, plafonds en vloeren strak afgewerkt tot in de details.",
+    title: "Schilderwerk",
+    text: "Binnen- en buitenschilderwerk met nette voorbereiding, scherpe lijnen en duurzame afwerking.",
   },
   {
-    icon: Wrench,
-    title: "Onderhoud",
-    text: "Kleine reparaties, vastgoedonderhoud en snelle hulp voor woningen en bedrijven.",
+    icon: Ruler,
+    title: "Timmerwerk",
+    text: "Kozijnen, deuren, maatwerk, aftimmering en kleine constructieve klussen professioneel uitgevoerd.",
+  },
+  {
+    icon: Heater,
+    title: "Vloerverwarming",
+    text: "Voorbereiding, aanleg en nette afwerking van vloerverwarming bij renovatie en verbouwing.",
   },
 ];
 
@@ -63,14 +62,14 @@ const projects = [
       "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=82",
   },
   {
-    type: "Keuken montage",
+    type: "Schilderwerk",
     place: "Rotterdam",
-    duration: "3 dagen",
+    duration: "4 dagen",
     image:
-      "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1200&q=82",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=82",
   },
   {
-    type: "Interieur afwerking",
+    type: "Stucwerk en afwerking",
     place: "Amsterdam",
     duration: "5 dagen",
     image:
@@ -87,7 +86,7 @@ const process = [
 
 const faqs = [
   ["Hoe snel kunnen jullie starten?", "Vaak kunnen we snel schakelen. De exacte startdatum hangt af van het type klus en de planning."],
-  ["Maken jullie ook kleine klussen?", "Ja. Kleine reparaties, montagewerk en onderhoud zijn juist onderdeel van onze service."],
+  ["Maken jullie ook kleine klussen?", "Ja. Ook kleinere klussen zoals schilderwerk, aftimmering en reparaties pakken we netjes op."],
   ["Is de offerte vrijblijvend?", "Ja, u ontvangt eerst een heldere en vrijblijvende offerte."],
   ["In welke regio werken jullie?", "Wij werken in Nederland, met focus op grote steden en omliggende regio's."],
 ];
@@ -141,7 +140,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Renovatie, montage en onderhoud
+              Stucwerk, schilderwerk, timmerwerk en vloerverwarming
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
@@ -156,7 +155,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18 }}
             >
-              Van kleine reparaties tot complete renovaties. Yus Klussenbedrijf werkt netjes, communiceert duidelijk en levert op volgens afspraak.
+              Van strak stucwerk tot schilderwerk, timmerwerk en vloerverwarming. Yus Klussenbedrijf werkt netjes, communiceert duidelijk en levert op volgens afspraak.
             </motion.p>
             <motion.div
               className="hero-actions"
@@ -315,9 +314,10 @@ export default function Home() {
               <select name="dienst" defaultValue="">
                 <option value="" disabled>Dienst kiezen</option>
                 <option>Renovatie</option>
-                <option>Montage</option>
+                <option>Stucwerk</option>
                 <option>Schilderwerk</option>
-                <option>Onderhoud</option>
+                <option>Timmerwerk</option>
+                <option>Vloerverwarming</option>
                 <option>Andere klus</option>
               </select>
               <textarea name="bericht" placeholder="Korte omschrijving van de klus" rows="5" />
@@ -368,7 +368,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <span>Yus Klussenbedrijf</span>
-        <span>Renovatie · Montage · Onderhoud</span>
+        <span>Stucwerk · Schilderwerk · Timmerwerk · Vloerverwarming</span>
         <span>© 2026</span>
       </footer>
 

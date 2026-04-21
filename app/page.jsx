@@ -3,7 +3,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
-  BadgeCheck,
   Check,
   Clock3,
   Heater,
@@ -23,83 +22,43 @@ const whatsapp = "https://wa.me/31612345678";
 const email = "info@yusklussenbedrijf.nl";
 
 const services = [
-  {
-    icon: Sparkles,
-    title: "Stucwerk",
-    meta: "Wanden en plafonds",
-    text: "Strakke wanden en plafonds, sausklaar of behangklaar afgewerkt met oog voor detail.",
-  },
-  {
-    icon: Paintbrush,
-    title: "Schilderwerk",
-    meta: "Binnen en buiten",
-    text: "Binnen- en buitenschilderwerk met nette voorbereiding, scherpe lijnen en duurzame afwerking.",
-  },
-  {
-    icon: Ruler,
-    title: "Timmerwerk",
-    meta: "Maatwerk en afbouw",
-    text: "Kozijnen, deuren, maatwerk, aftimmering en kleine constructieve klussen professioneel uitgevoerd.",
-  },
-  {
-    icon: Heater,
-    title: "Vloerverwarming",
-    meta: "Renovatieklaar",
-    text: "Voorbereiding, aanleg en nette afwerking van vloerverwarming bij renovatie en verbouwing.",
-  },
+  ["Stucwerk", "Strakke wanden en plafonds, sausklaar of behangklaar opgeleverd.", Sparkles],
+  ["Schilderwerk", "Binnen en buiten schilderwerk met nette voorbereiding en duurzame afwerking.", Paintbrush],
+  ["Timmerwerk", "Aftimmering, deuren, kozijnen en maatwerk voor renovatie en afbouw.", Ruler],
+  ["Vloerverwarming", "Voorbereiding, aanleg en afwerking voor comfortabele woonruimtes.", Heater],
 ];
 
-const benefits = [
-  "Snelle reactie",
-  "Heldere offerte",
-  "Net werkgebied",
-  "Betrouwbare planning",
-  "Vakmanschap",
-  "Een aanspreekpunt",
+const values = [
+  "Heldere offerte vooraf",
+  "Net en schoon werkgebied",
+  "Duidelijke planning",
+  "Een vast aanspreekpunt",
+  "Afwerking tot in detail",
+  "Snel contact via WhatsApp",
 ];
-
-const regions = ["Amsterdam", "Rotterdam", "Utrecht", "Den Haag", "Eindhoven", "Almere"];
 
 const projects = [
-  {
-    type: "Badkamer renovatie",
-    place: "Utrecht",
-    duration: "8 dagen",
-    image:
-      "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=82",
-  },
-  {
-    type: "Schilderwerk",
-    place: "Rotterdam",
-    duration: "4 dagen",
-    image:
-      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=82",
-  },
-  {
-    type: "Stucwerk en afwerking",
-    place: "Amsterdam",
-    duration: "5 dagen",
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82",
-  },
+  ["Stucwerk en schilderwerk", "Amsterdam", "Woning strak afgewerkt voor verhuur.", "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=84"],
+  ["Badkamer renovatie", "Utrecht", "Moderne afwerking met rustige materiaalkeuze.", "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=84"],
+  ["Vloer en afbouw", "Rotterdam", "Nette oplevering van woonruimte en details.", "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=84"],
 ];
 
-const process = [
-  ["01", "Contact", "U vertelt wat er nodig is en deelt eventueel foto's."],
-  ["02", "Opname", "We bespreken de situatie, planning en materiaalkeuzes."],
-  ["03", "Offerte", "U krijgt een duidelijke prijs en heldere afspraken."],
-  ["04", "Uitvoering", "We werken netjes, communiceren goed en leveren strak op."],
+const steps = [
+  ["01", "Aanvraag", "U deelt de klus, wensen en eventueel foto's."],
+  ["02", "Plan", "We bespreken materiaal, timing en aanpak."],
+  ["03", "Offerte", "U krijgt een duidelijk voorstel zonder verrassingen."],
+  ["04", "Oplevering", "We werken netjes en leveren strak op."],
 ];
 
 const faqs = [
-  ["Hoe snel kunnen jullie starten?", "Vaak kunnen we snel schakelen. De exacte startdatum hangt af van het type klus en de planning."],
-  ["Maken jullie ook kleine klussen?", "Ja. Ook kleinere klussen zoals schilderwerk, aftimmering en reparaties pakken we netjes op."],
-  ["Is de offerte vrijblijvend?", "Ja, u ontvangt eerst een heldere en vrijblijvende offerte."],
-  ["In welke regio werken jullie?", "Wij werken in Nederland, met focus op grote steden en omliggende regio's."],
+  ["Hoe snel reageren jullie?", "Meestal reageren we binnen 24 uur op aanvragen."],
+  ["Doen jullie ook kleine klussen?", "Ja. Ook kleinere herstel-, schilder- en timmerklussen pakken we netjes op."],
+  ["Is de offerte vrijblijvend?", "Ja, u ontvangt eerst een duidelijke vrijblijvende offerte."],
+  ["Waar werken jullie?", "Wij werken in Nederland, met focus op de Randstad en omliggende regio's."],
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+const reveal = {
+  hidden: { opacity: 0, y: 26 },
   show: { opacity: 1, y: 0 },
 };
 
@@ -108,11 +67,11 @@ function Reveal({ children, delay = 0 }) {
 
   return (
     <motion.div
-      variants={fadeUp}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      variants={reveal}
+      transition={{ duration: reduceMotion ? 0 : 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -123,184 +82,118 @@ export default function Home() {
   return (
     <>
       <header className="site-header">
-        <a href="#" className="wordmark" aria-label="Yus Klussenbedrijf home">
-          <img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" />
+        <a className="brand" href="#" aria-label="YUS Klussenbedrijf">
+          <img src="/yus-logo-cropped.png" alt="YUS Klussenbedrijf" />
         </a>
         <nav aria-label="Hoofdnavigatie">
           <a href="#diensten">Diensten</a>
-          <a href="#projecten">Projecten</a>
-          <a href="#werkwijze">Werkwijze</a>
+          <a href="#projecten">Werk</a>
+          <a href="#proces">Proces</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="header-cta" href="#offerte">
-          Offerte aanvragen
-        </a>
+        <a className="nav-button" href="#offerte">Offerte aanvragen</a>
       </header>
 
       <main>
         <section className="hero">
-          <div className="hero-bg" aria-hidden="true" />
-          <div className="hero-content">
-            <div className="hero-copy">
-              <motion.p
-                className="eyebrow"
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                Stucwerk, schilderwerk, timmerwerk en vloerverwarming
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, delay: 0.08 }}
-              >
-                Strak vakwerk voor elke ruimte.
-              </motion.h1>
-              <motion.p
-                className="hero-text"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.18 }}
-              >
-                YUS Klussenbedrijf helpt particuliere en zakelijke klanten met nette afwerking, duidelijke afspraken en een resultaat dat klopt tot in de details.
-              </motion.p>
-              <motion.div
-                className="hero-actions"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.28 }}
-              >
-                <a className="btn primary" href="#offerte">
-                  Vraag offerte aan <ArrowRight size={18} />
-                </a>
-                <a className="btn ghost" href={whatsapp}>
-                  <MessageCircle size={18} /> WhatsApp
-                </a>
-              </motion.div>
-              <motion.div
-                className="trust-row"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.75, delay: 0.42 }}
-              >
-                <span><Clock3 size={16} /> Snel op locatie</span>
-                <span><ShieldCheck size={16} /> Vrijblijvende offerte</span>
-                <span><Sparkles size={16} /> Nette oplevering</span>
-              </motion.div>
-            </div>
-
-            <motion.aside
-              className="hero-panel"
-              initial={{ opacity: 0, y: 26, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
-              aria-label="Projectinformatie"
-            >
-              <div className="panel-image">
-                <img
-                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=84"
-                  alt="Strak afgewerkte woning"
-                />
-              </div>
-              <div className="panel-content">
-                <span><BadgeCheck size={16} /> Netjes geregeld</span>
-                <strong>Een vakman die meedenkt, plant en oplevert.</strong>
-                <p>Geschikt voor woningen, verhuurpanden, kantoren en renovatieprojecten.</p>
-              </div>
-            </motion.aside>
+          <div className="hero-copy">
+            <motion.p className="label" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
+              Stucwerk / Schilderwerk / Timmerwerk / Vloerverwarming
+            </motion.p>
+            <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
+              Kluswerk dat strak voelt voordat het klaar is.
+            </motion.h1>
+            <motion.p className="hero-lead" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }}>
+              YUS Klussenbedrijf werkt voor woningen, verhuurpanden en bedrijfsruimtes. Duidelijke afspraken, nette uitvoering en afwerking waar u op kunt vertrouwen.
+            </motion.p>
+            <motion.div className="hero-actions" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
+              <a className="button primary" href="#offerte">Vraag offerte aan <ArrowRight size={18} /></a>
+              <a className="button secondary" href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
+            </motion.div>
+            <motion.div className="proof" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.36 }}>
+              <span><Clock3 size={16} /> Snelle reactie</span>
+              <span><ShieldCheck size={16} /> Heldere afspraken</span>
+              <span><Check size={16} /> Nette oplevering</span>
+            </motion.div>
           </div>
+
+          <motion.div className="hero-visual" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.18, duration: 0.75 }}>
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=86" alt="Strak afgewerkte woonruimte" />
+            <div className="visual-note">
+              <strong>Afwerking zonder ruis.</strong>
+              <span>Van eerste afspraak tot oplevering netjes geregeld.</span>
+            </div>
+          </motion.div>
         </section>
 
-        <section className="section compact">
-          <div className="metric-grid">
-            {[
-              ["24u", "Reactie op aanvragen"],
-              ["4", "Specialisaties"],
-              ["100%", "Heldere afspraken"],
-            ].map(([value, label]) => (
-              <Reveal key={label}>
-                <div className="metric">
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
+        <section className="stats" aria-label="Kernwaarden">
+          {[
+            ["24u", "Reactie op aanvragen"],
+            ["4", "Specialisaties"],
+            ["NL", "Werkgebied"],
+          ].map(([value, text]) => (
+            <Reveal key={text}>
+              <div>
+                <strong>{value}</strong>
+                <span>{text}</span>
+              </div>
+            </Reveal>
+          ))}
+        </section>
+
+        <section className="section" id="diensten">
+          <Reveal>
+            <div className="section-head">
+              <p className="label">Diensten</p>
+              <h2>Specialistisch genoeg voor detail, breed genoeg voor renovatie.</h2>
+            </div>
+          </Reveal>
+          <div className="service-grid">
+            {services.map(([title, text, Icon], index) => (
+              <Reveal key={title} delay={index * 0.05}>
+                <article className="service-card">
+                  <Icon size={26} />
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <a href="#offerte">Aanvragen <ArrowRight size={16} /></a>
+                </article>
               </Reveal>
             ))}
           </div>
         </section>
 
-        <section className="section" id="diensten">
-          <Reveal>
-            <div className="section-heading">
-              <p className="eyebrow">Diensten</p>
-              <h2>Afwerking en renovatie zonder onnodige ruis.</h2>
-            </div>
-          </Reveal>
-          <div className="service-grid">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <Reveal key={service.title} delay={index * 0.06}>
-                  <article className="service-card">
-                    <div className="service-top">
-                      <Icon size={26} />
-                      <span>{service.meta}</span>
-                    </div>
-                    <h3>{service.title}</h3>
-                    <p>{service.text}</p>
-                    <a href="#offerte">Offerte aanvragen</a>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className="section region-strip" aria-label="Werkgebied">
-          <Reveal>
-            <p className="eyebrow">Werkgebied</p>
-            <div className="region-content">
-              <h2>Actief in Nederland, snel op afspraak.</h2>
-              <div className="region-list">
-                {regions.map((region) => (
-                  <span key={region}>{region}</span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
         <section className="section split">
           <Reveal>
-            <div>
-              <p className="eyebrow">Waarom kiezen voor Yus</p>
-              <h2>Rust in het proces. Kwaliteit in de uitvoering.</h2>
+            <div className="section-head">
+              <p className="label">Waarom YUS</p>
+              <h2>Een rustige uitvoering begint bij duidelijke communicatie.</h2>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="benefit-list">
-              {benefits.map((benefit) => (
-                <span key={benefit}><Check size={18} /> {benefit}</span>
+          <Reveal delay={0.08}>
+            <div className="value-grid">
+              {values.map((value) => (
+                <span key={value}><Check size={18} /> {value}</span>
               ))}
             </div>
           </Reveal>
         </section>
 
-        <section className="section dark" id="projecten">
+        <section className="work-section" id="projecten">
           <Reveal>
-            <div className="section-heading">
-              <p className="eyebrow">Projecten</p>
-              <h2>Werk dat je meteen ziet, maar vooral lang merkt.</h2>
+            <div className="section-head invert">
+              <p className="label">Werk</p>
+              <h2>Een sterke basis, strak zichtbaar resultaat.</h2>
             </div>
           </Reveal>
           <div className="project-grid">
-            {projects.map((project, index) => (
-              <Reveal key={project.type} delay={index * 0.06}>
+            {projects.map(([title, place, text, image], index) => (
+              <Reveal key={title} delay={index * 0.05}>
                 <article className="project-card">
-                  <img src={project.image} alt={`${project.type} in ${project.place}`} />
+                  <img src={image} alt={`${title} in ${place}`} />
                   <div>
-                    <span>{project.place} - {project.duration}</span>
-                    <h3>{project.type}</h3>
+                    <span>{place}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
                   </div>
                 </article>
               </Reveal>
@@ -308,16 +201,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section split" id="werkwijze">
+        <section className="section split" id="proces">
           <Reveal>
-            <div>
-              <p className="eyebrow">Werkwijze</p>
-              <h2>Van eerste bericht tot oplevering zonder gedoe.</h2>
+            <div className="section-head">
+              <p className="label">Proces</p>
+              <h2>Geen ingewikkeld traject. Gewoon goed geregeld.</h2>
             </div>
           </Reveal>
-          <div className="timeline">
-            {process.map(([number, title, text], index) => (
-              <Reveal key={title} delay={index * 0.05}>
+          <div className="steps">
+            {steps.map(([number, title, text], index) => (
+              <Reveal key={title} delay={index * 0.04}>
                 <article>
                   <strong>{number}</strong>
                   <div>
@@ -330,15 +223,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section testimonials">
+        <section className="quote-section">
           <Reveal>
             <div className="quote-card">
-              <div className="stars" aria-label="5 sterren">
-                {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
-              </div>
-              <blockquote>
-                "Duidelijke afspraken, netjes gewerkt en alles schoon achtergelaten. Precies wat je zoekt bij een klusbedrijf."
-              </blockquote>
+              <div className="stars">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={18} fill="currentColor" />)}</div>
+              <blockquote>"Netjes gewerkt, duidelijk gecommuniceerd en alles schoon achtergelaten."</blockquote>
               <p>Particuliere klant - Utrecht</p>
             </div>
           </Reveal>
@@ -346,9 +235,10 @@ export default function Home() {
 
         <section className="section form-section" id="offerte">
           <Reveal>
-            <div className="section-heading">
-              <p className="eyebrow">Offerte</p>
-              <h2>Vertel kort wat er moet gebeuren.</h2>
+            <div className="section-head">
+              <p className="label">Offerte</p>
+              <h2>Vertel wat er moet gebeuren.</h2>
+              <p>Stuur uw aanvraag. We reageren snel met een duidelijke vervolgstap.</p>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
@@ -359,25 +249,22 @@ export default function Home() {
               <input name="plaats" placeholder="Plaats / regio" />
               <select name="dienst" defaultValue="">
                 <option value="" disabled>Dienst kiezen</option>
-                <option>Renovatie</option>
                 <option>Stucwerk</option>
                 <option>Schilderwerk</option>
                 <option>Timmerwerk</option>
                 <option>Vloerverwarming</option>
-                <option>Andere klus</option>
+                <option>Renovatie</option>
               </select>
-              <textarea name="bericht" placeholder="Korte omschrijving van de klus" rows="5" />
-              <button className="btn primary" type="submit">
-                Verstuur aanvraag <ArrowRight size={18} />
-              </button>
+              <textarea name="bericht" rows="5" placeholder="Korte omschrijving van de klus" />
+              <button className="button primary" type="submit">Verstuur aanvraag <ArrowRight size={18} /></button>
             </form>
           </Reveal>
         </section>
 
-        <section className="section faq">
+        <section className="section faq-section">
           <Reveal>
-            <div className="section-heading">
-              <p className="eyebrow">FAQ</p>
+            <div className="section-head">
+              <p className="label">FAQ</p>
               <h2>Veelgestelde vragen.</h2>
             </div>
           </Reveal>
@@ -393,27 +280,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section contact-band" id="contact">
-          <Reveal>
-            <div>
-              <p className="eyebrow">Contact</p>
-              <h2>Klaar om uw klus te bespreken?</h2>
-              <p>Stuur een bericht of vraag direct een vrijblijvende offerte aan.</p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="contact-actions">
-              <a href={`tel:${phone.replaceAll(" ", "")}`}><Phone size={18} /> {phone}</a>
-              <a href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
-              <a href={`mailto:${email}`}><Mail size={18} /> {email}</a>
-              <span><MapPin size={18} /> Nederland</span>
-            </div>
-          </Reveal>
+        <section className="contact-band" id="contact">
+          <div>
+            <p className="label">Contact</p>
+            <h2>Klaar om uw klus te bespreken?</h2>
+          </div>
+          <div className="contact-links">
+            <a href={`tel:${phone.replaceAll(" ", "")}`}><Phone size={18} /> {phone}</a>
+            <a href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
+            <a href={`mailto:${email}`}><Mail size={18} /> {email}</a>
+            <span><MapPin size={18} /> Nederland</span>
+          </div>
         </section>
       </main>
 
       <footer className="site-footer">
-        <span className="footer-logo"><img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" /></span>
+        <img src="/yus-logo-cropped.png" alt="YUS Klussenbedrijf" />
         <span>Stucwerk - Schilderwerk - Timmerwerk - Vloerverwarming</span>
         <span>Copyright 2026</span>
       </footer>

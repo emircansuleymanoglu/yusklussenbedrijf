@@ -124,7 +124,7 @@ export default function Home() {
     <>
       <header className="site-header">
         <a href="#" className="wordmark" aria-label="Yus Klussenbedrijf home">
-          Yus Klussenbedrijf
+          <img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" />
         </a>
         <nav aria-label="Hoofdnavigatie">
           <a href="#diensten">Diensten</a>
@@ -142,6 +142,14 @@ export default function Home() {
           <div className="hero-bg" aria-hidden="true" />
           <div className="hero-content">
             <div className="hero-copy">
+              <motion.div
+                className="hero-brand"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" />
+              </motion.div>
               <motion.p
                 className="eyebrow"
                 initial={{ opacity: 0, y: 14 }}
@@ -197,10 +205,12 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
               aria-label="Projectinformatie"
             >
-              <img
-                src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=900&q=82"
-                alt="Nette interieurafwerking"
-              />
+              <div className="panel-image">
+                <img
+                  src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=900&q=82"
+                  alt="Nette interieurafwerking"
+                />
+              </div>
               <div className="panel-content">
                 <span><BadgeCheck size={16} /> Premium afwerking</span>
                 <strong>Van voorbereiding tot laatste detail.</strong>
@@ -225,6 +235,17 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </section>
+
+        <section className="brand-statement" aria-label="Merkbelofte">
+          <Reveal>
+            <div className="brand-statement-inner">
+              <img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" />
+              <p>
+                Specialist in nette afwerking voor woningen en zakelijke ruimtes. Duidelijk in afspraken, strak in uitvoering.
+              </p>
+            </div>
+          </Reveal>
         </section>
 
         <section className="section" id="diensten">
@@ -411,7 +432,7 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <span>Yus Klussenbedrijf</span>
+        <span className="footer-logo"><img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" /></span>
         <span>Stucwerk - Schilderwerk - Timmerwerk - Vloerverwarming</span>
         <span>Copyright 2026</span>
       </footer>

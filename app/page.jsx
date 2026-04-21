@@ -142,14 +142,6 @@ export default function Home() {
           <div className="hero-bg" aria-hidden="true" />
           <div className="hero-content">
             <div className="hero-copy">
-              <motion.div
-                className="hero-brand"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" />
-              </motion.div>
               <motion.p
                 className="eyebrow"
                 initial={{ opacity: 0, y: 14 }}
@@ -163,7 +155,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.75, delay: 0.08 }}
               >
-                Strak werk. Heldere afspraken. Netjes opgeleverd.
+                Strak vakwerk voor elke ruimte.
               </motion.h1>
               <motion.p
                 className="hero-text"
@@ -171,7 +163,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.18 }}
               >
-                Voor woningen, verhuurpanden en bedrijven. Yus Klussenbedrijf combineert vakkundige afwerking met duidelijke communicatie en een planning die klopt.
+                YUS Klussenbedrijf helpt particuliere en zakelijke klanten met nette afwerking, duidelijke afspraken en een resultaat dat klopt tot in de details.
               </motion.p>
               <motion.div
                 className="hero-actions"
@@ -207,14 +199,14 @@ export default function Home() {
             >
               <div className="panel-image">
                 <img
-                  src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=900&q=82"
-                  alt="Nette interieurafwerking"
+                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=84"
+                  alt="Strak afgewerkte woning"
                 />
               </div>
               <div className="panel-content">
-                <span><BadgeCheck size={16} /> Premium afwerking</span>
-                <strong>Van voorbereiding tot laatste detail.</strong>
-                <p>Een rustig proces, duidelijke keuzes en een resultaat dat past bij de ruimte.</p>
+                <span><BadgeCheck size={16} /> Netjes geregeld</span>
+                <strong>Een vakman die meedenkt, plant en oplevert.</strong>
+                <p>Geschikt voor woningen, verhuurpanden, kantoren en renovatieprojecten.</p>
               </div>
             </motion.aside>
           </div>
@@ -237,22 +229,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="brand-statement" aria-label="Merkbelofte">
-          <Reveal>
-            <div className="brand-statement-inner">
-              <img src="/yus-logo-cropped.png" alt="Yus Klussenbedrijf" />
-              <p>
-                Specialist in nette afwerking voor woningen en zakelijke ruimtes. Duidelijk in afspraken, strak in uitvoering.
-              </p>
-            </div>
-          </Reveal>
-        </section>
-
         <section className="section" id="diensten">
           <Reveal>
             <div className="section-heading">
               <p className="eyebrow">Diensten</p>
-              <h2>Vier sterke diensten voor een strak eindresultaat.</h2>
+              <h2>Afwerking en renovatie zonder onnodige ruis.</h2>
             </div>
           </Reveal>
           <div className="service-grid">
@@ -293,7 +274,7 @@ export default function Home() {
           <Reveal>
             <div>
               <p className="eyebrow">Waarom kiezen voor Yus</p>
-              <h2>Duidelijke communicatie, schoon werk en een planning die klopt.</h2>
+              <h2>Rust in het proces. Kwaliteit in de uitvoering.</h2>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -309,7 +290,7 @@ export default function Home() {
           <Reveal>
             <div className="section-heading">
               <p className="eyebrow">Projecten</p>
-              <h2>Strakke afwerking, zichtbaar verschil.</h2>
+              <h2>Werk dat je meteen ziet, maar vooral lang merkt.</h2>
             </div>
           </Reveal>
           <div className="project-grid">

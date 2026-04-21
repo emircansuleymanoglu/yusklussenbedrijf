@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
+  BadgeCheck,
   Check,
   Clock3,
   Heater,
@@ -25,21 +26,25 @@ const services = [
   {
     icon: Sparkles,
     title: "Stucwerk",
+    meta: "Wanden en plafonds",
     text: "Strakke wanden en plafonds, sausklaar of behangklaar afgewerkt met oog voor detail.",
   },
   {
     icon: Paintbrush,
     title: "Schilderwerk",
+    meta: "Binnen en buiten",
     text: "Binnen- en buitenschilderwerk met nette voorbereiding, scherpe lijnen en duurzame afwerking.",
   },
   {
     icon: Ruler,
     title: "Timmerwerk",
+    meta: "Maatwerk en afbouw",
     text: "Kozijnen, deuren, maatwerk, aftimmering en kleine constructieve klussen professioneel uitgevoerd.",
   },
   {
     icon: Heater,
     title: "Vloerverwarming",
+    meta: "Renovatieklaar",
     text: "Voorbereiding, aanleg en nette afwerking van vloerverwarming bij renovatie en verbouwing.",
   },
 ];
@@ -52,6 +57,8 @@ const benefits = [
   "Vakmanschap",
   "Een aanspreekpunt",
 ];
+
+const regions = ["Amsterdam", "Rotterdam", "Utrecht", "Den Haag", "Eindhoven", "Almere"];
 
 const projects = [
   {
@@ -134,52 +141,72 @@ export default function Home() {
         <section className="hero">
           <div className="hero-bg" aria-hidden="true" />
           <div className="hero-content">
-            <motion.p
-              className="eyebrow"
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+            <div className="hero-copy">
+              <motion.p
+                className="eyebrow"
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                Stucwerk, schilderwerk, timmerwerk en vloerverwarming
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.75, delay: 0.08 }}
+              >
+                Strak werk. Heldere afspraken. Netjes opgeleverd.
+              </motion.h1>
+              <motion.p
+                className="hero-text"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.18 }}
+              >
+                Voor woningen, verhuurpanden en bedrijven. Yus Klussenbedrijf combineert vakkundige afwerking met duidelijke communicatie en een planning die klopt.
+              </motion.p>
+              <motion.div
+                className="hero-actions"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.28 }}
+              >
+                <a className="btn primary" href="#offerte">
+                  Vraag offerte aan <ArrowRight size={18} />
+                </a>
+                <a className="btn ghost" href={whatsapp}>
+                  <MessageCircle size={18} /> WhatsApp
+                </a>
+              </motion.div>
+              <motion.div
+                className="trust-row"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.75, delay: 0.42 }}
+              >
+                <span><Clock3 size={16} /> Snel op locatie</span>
+                <span><ShieldCheck size={16} /> Vrijblijvende offerte</span>
+                <span><Sparkles size={16} /> Nette oplevering</span>
+              </motion.div>
+            </div>
+
+            <motion.aside
+              className="hero-panel"
+              initial={{ opacity: 0, y: 26, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
+              aria-label="Projectinformatie"
             >
-              Stucwerk, schilderwerk, timmerwerk en vloerverwarming
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.08 }}
-            >
-              Vakwerk voor woningen, verhuurpanden en bedrijven.
-            </motion.h1>
-            <motion.p
-              className="hero-text"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.18 }}
-            >
-              Van strak stucwerk tot schilderwerk, timmerwerk en vloerverwarming. Yus Klussenbedrijf werkt netjes, communiceert duidelijk en levert op volgens afspraak.
-            </motion.p>
-            <motion.div
-              className="hero-actions"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.28 }}
-            >
-              <a className="btn primary" href="#offerte">
-                Vraag offerte aan <ArrowRight size={18} />
-              </a>
-              <a className="btn ghost" href={whatsapp}>
-                <MessageCircle size={18} /> WhatsApp
-              </a>
-            </motion.div>
-            <motion.div
-              className="trust-row"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.75, delay: 0.42 }}
-            >
-              <span><Clock3 size={16} /> Snel op locatie</span>
-              <span><ShieldCheck size={16} /> Vrijblijvende offerte</span>
-              <span><Sparkles size={16} /> Nette oplevering</span>
-            </motion.div>
+              <img
+                src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=900&q=82"
+                alt="Nette interieurafwerking"
+              />
+              <div className="panel-content">
+                <span><BadgeCheck size={16} /> Premium afwerking</span>
+                <strong>Van voorbereiding tot laatste detail.</strong>
+                <p>Een rustig proces, duidelijke keuzes en een resultaat dat past bij de ruimte.</p>
+              </div>
+            </motion.aside>
           </div>
         </section>
 
@@ -187,7 +214,7 @@ export default function Home() {
           <div className="metric-grid">
             {[
               ["24u", "Reactie op aanvragen"],
-              ["10+", "Soorten klusdiensten"],
+              ["4", "Specialisaties"],
               ["100%", "Heldere afspraken"],
             ].map(([value, label]) => (
               <Reveal key={label}>
@@ -204,7 +231,7 @@ export default function Home() {
           <Reveal>
             <div className="section-heading">
               <p className="eyebrow">Diensten</p>
-              <h2>Een betrouwbare vakman voor elke fase van uw project.</h2>
+              <h2>Vier sterke diensten voor een strak eindresultaat.</h2>
             </div>
           </Reveal>
           <div className="service-grid">
@@ -213,7 +240,10 @@ export default function Home() {
               return (
                 <Reveal key={service.title} delay={index * 0.06}>
                   <article className="service-card">
-                    <Icon size={26} />
+                    <div className="service-top">
+                      <Icon size={26} />
+                      <span>{service.meta}</span>
+                    </div>
                     <h3>{service.title}</h3>
                     <p>{service.text}</p>
                     <a href="#offerte">Offerte aanvragen</a>
@@ -222,6 +252,20 @@ export default function Home() {
               );
             })}
           </div>
+        </section>
+
+        <section className="section region-strip" aria-label="Werkgebied">
+          <Reveal>
+            <p className="eyebrow">Werkgebied</p>
+            <div className="region-content">
+              <h2>Actief in Nederland, snel op afspraak.</h2>
+              <div className="region-list">
+                {regions.map((region) => (
+                  <span key={region}>{region}</span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </section>
 
         <section className="section split">
@@ -253,7 +297,7 @@ export default function Home() {
                 <article className="project-card">
                   <img src={project.image} alt={`${project.type} in ${project.place}`} />
                   <div>
-                    <span>{project.place} · {project.duration}</span>
+                    <span>{project.place} - {project.duration}</span>
                     <h3>{project.type}</h3>
                   </div>
                 </article>
@@ -293,7 +337,7 @@ export default function Home() {
               <blockquote>
                 "Duidelijke afspraken, netjes gewerkt en alles schoon achtergelaten. Precies wat je zoekt bij een klusbedrijf."
               </blockquote>
-              <p>Particuliere klant · Utrecht</p>
+              <p>Particuliere klant - Utrecht</p>
             </div>
           </Reveal>
         </section>
@@ -368,8 +412,8 @@ export default function Home() {
 
       <footer className="site-footer">
         <span>Yus Klussenbedrijf</span>
-        <span>Stucwerk · Schilderwerk · Timmerwerk · Vloerverwarming</span>
-        <span>© 2026</span>
+        <span>Stucwerk - Schilderwerk - Timmerwerk - Vloerverwarming</span>
+        <span>Copyright 2026</span>
       </footer>
 
       <div className="mobile-cta">

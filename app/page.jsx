@@ -22,43 +22,57 @@ const whatsapp = "https://wa.me/31612345678";
 const email = "info@yusklussenbedrijf.nl";
 
 const services = [
-  ["Stucwerk", "Strakke wanden en plafonds, sausklaar of behangklaar opgeleverd.", Sparkles],
-  ["Schilderwerk", "Binnen en buiten schilderwerk met nette voorbereiding en duurzame afwerking.", Paintbrush],
-  ["Timmerwerk", "Aftimmering, deuren, kozijnen en maatwerk voor renovatie en afbouw.", Ruler],
-  ["Vloerverwarming", "Voorbereiding, aanleg en afwerking voor comfortabele woonruimtes.", Heater],
+  {
+    title: "Stucwerk",
+    text: "Wanden en plafonds strak, rustig en klaar voor de volgende laag.",
+    icon: Sparkles,
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=86",
+  },
+  {
+    title: "Schilderwerk",
+    text: "Binnen en buiten schilderwerk met scherpe lijnen en duurzame voorbereiding.",
+    icon: Paintbrush,
+    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=86",
+  },
+  {
+    title: "Timmerwerk",
+    text: "Aftimmering, deuren, kozijnen en maatwerk dat voelt alsof het er altijd hoorde.",
+    icon: Ruler,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=86",
+  },
+  {
+    title: "Vloerverwarming",
+    text: "Comfort onder de vloer, netjes voorbereid en afgewerkt voor renovatie.",
+    icon: Heater,
+    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=86",
+  },
 ];
 
 const values = [
-  "Heldere offerte vooraf",
-  "Net en schoon werkgebied",
-  "Duidelijke planning",
+  "Duidelijke prijsafspraak",
+  "Strakke afwerking",
+  "Schoon opgeleverd",
+  "Snelle communicatie",
+  "Planning zonder ruis",
   "Een vast aanspreekpunt",
-  "Afwerking tot in detail",
-  "Snel contact via WhatsApp",
-];
-
-const projects = [
-  ["Stucwerk en schilderwerk", "Amsterdam", "Woning strak afgewerkt voor verhuur.", "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=84"],
-  ["Badkamer renovatie", "Utrecht", "Moderne afwerking met rustige materiaalkeuze.", "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=84"],
-  ["Vloer en afbouw", "Rotterdam", "Nette oplevering van woonruimte en details.", "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=84"],
 ];
 
 const steps = [
-  ["01", "Aanvraag", "U deelt de klus, wensen en eventueel foto's."],
-  ["02", "Plan", "We bespreken materiaal, timing en aanpak."],
-  ["03", "Offerte", "U krijgt een duidelijk voorstel zonder verrassingen."],
-  ["04", "Oplevering", "We werken netjes en leveren strak op."],
+  ["01", "Vertel wat nodig is", "U deelt de klus, locatie en eventueel foto's."],
+  ["02", "We maken het concreet", "Materiaal, timing en aanpak worden helder besproken."],
+  ["03", "U krijgt een offerte", "Duidelijke prijs en planning voordat we starten."],
+  ["04", "Netjes opgeleverd", "We werken rustig, schoon en met aandacht voor detail."],
 ];
 
 const faqs = [
-  ["Hoe snel reageren jullie?", "Meestal reageren we binnen 24 uur op aanvragen."],
-  ["Doen jullie ook kleine klussen?", "Ja. Ook kleinere herstel-, schilder- en timmerklussen pakken we netjes op."],
+  ["Hoe snel reageren jullie?", "Meestal binnen 24 uur. Bij spoed kunt u direct via WhatsApp sturen."],
+  ["Doen jullie kleine klussen?", "Ja. Kleine herstel-, schilder-, stuc- en timmerklussen zijn welkom."],
   ["Is de offerte vrijblijvend?", "Ja, u ontvangt eerst een duidelijke vrijblijvende offerte."],
   ["Waar werken jullie?", "Wij werken in Nederland, met focus op de Randstad en omliggende regio's."],
 ];
 
 const reveal = {
-  hidden: { opacity: 0, y: 26 },
+  hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 },
 };
 
@@ -69,9 +83,9 @@ function Reveal({ children, delay = 0 }) {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-90px" }}
       variants={reveal}
-      transition={{ duration: reduceMotion ? 0 : 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: reduceMotion ? 0 : 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -87,7 +101,7 @@ export default function Home() {
         </a>
         <nav aria-label="Hoofdnavigatie">
           <a href="#diensten">Diensten</a>
-          <a href="#projecten">Werk</a>
+          <a href="#kwaliteit">Kwaliteit</a>
           <a href="#proces">Proces</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -96,81 +110,85 @@ export default function Home() {
 
       <main>
         <section className="hero">
-          <div className="hero-copy">
-            <motion.p className="label" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
-              Stucwerk / Schilderwerk / Timmerwerk / Vloerverwarming
-            </motion.p>
-            <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
-              Kluswerk dat strak voelt voordat het klaar is.
-            </motion.h1>
-            <motion.p className="hero-lead" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }}>
-              YUS Klussenbedrijf werkt voor woningen, verhuurpanden en bedrijfsruimtes. Duidelijke afspraken, nette uitvoering en afwerking waar u op kunt vertrouwen.
-            </motion.p>
-            <motion.div className="hero-actions" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
-              <a className="button primary" href="#offerte">Vraag offerte aan <ArrowRight size={18} /></a>
-              <a className="button secondary" href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
-            </motion.div>
-            <motion.div className="proof" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.36 }}>
-              <span><Clock3 size={16} /> Snelle reactie</span>
-              <span><ShieldCheck size={16} /> Heldere afspraken</span>
-              <span><Check size={16} /> Nette oplevering</span>
-            </motion.div>
-          </div>
+          <motion.p className="announcement" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
+            Premium afwerking voor woningen, verhuurpanden en bedrijfsruimtes.
+          </motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
+            Van klus naar klasse.
+          </motion.h1>
+          <motion.p className="hero-lead" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }}>
+            YUS Klussenbedrijf maakt ruimtes zichtbaar beter met strak stucwerk, schilderwerk, timmerwerk en vloerverwarming. Rustig geregeld, scherp uitgevoerd.
+          </motion.p>
+          <motion.div className="hero-actions" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
+            <a className="button dark" href="#offerte">Vraag offerte aan <ArrowRight size={18} /></a>
+            <a className="button light" href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
+          </motion.div>
 
-          <motion.div className="hero-visual" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.18, duration: 0.75 }}>
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=86" alt="Strak afgewerkte woonruimte" />
-            <div className="visual-note">
-              <strong>Afwerking zonder ruis.</strong>
-              <span>Van eerste afspraak tot oplevering netjes geregeld.</span>
+          <motion.div className="showcase" initial={{ opacity: 0, y: 28, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=88" alt="Luxe afgewerkte woonruimte" />
+            <div className="showcase-panel left">
+              <span>Reactie</span>
+              <strong>Binnen 24 uur</strong>
+            </div>
+            <div className="showcase-panel right">
+              <span>Specialisaties</span>
+              <strong>Stuc / Schilder / Timmer / Vloer</strong>
             </div>
           </motion.div>
         </section>
 
-        <section className="stats" aria-label="Kernwaarden">
+        <section className="metrics" aria-label="Kerncijfers">
           {[
-            ["24u", "Reactie op aanvragen"],
-            ["4", "Specialisaties"],
-            ["NL", "Werkgebied"],
-          ].map(([value, text]) => (
-            <Reveal key={text}>
+            ["01", "Een aanspreekpunt"],
+            ["24u", "Snelle reactie"],
+            ["4", "Heldere specialisaties"],
+          ].map(([value, label], index) => (
+            <Reveal key={label} delay={index * 0.05}>
               <div>
                 <strong>{value}</strong>
-                <span>{text}</span>
+                <span>{label}</span>
               </div>
             </Reveal>
           ))}
         </section>
 
-        <section className="section" id="diensten">
+        <section className="section services" id="diensten">
           <Reveal>
-            <div className="section-head">
-              <p className="label">Diensten</p>
-              <h2>Specialistisch genoeg voor detail, breed genoeg voor renovatie.</h2>
+            <div className="section-head centered">
+              <p className="kicker">Diensten</p>
+              <h2>Alles wat een ruimte afmaakt.</h2>
+              <p>Vier diensten, een standaard: strak, schoon en duidelijk opgeleverd.</p>
             </div>
           </Reveal>
-          <div className="service-grid">
-            {services.map(([title, text, Icon], index) => (
-              <Reveal key={title} delay={index * 0.05}>
-                <article className="service-card">
-                  <Icon size={26} />
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                  <a href="#offerte">Aanvragen <ArrowRight size={16} /></a>
-                </article>
-              </Reveal>
-            ))}
+          <div className="service-bento">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Reveal key={service.title} delay={index * 0.06}>
+                  <article className={`service-card service-${index + 1}`}>
+                    <img src={service.image} alt={service.title} />
+                    <div>
+                      <Icon size={24} />
+                      <h3>{service.title}</h3>
+                      <p>{service.text}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </section>
 
-        <section className="section split">
+        <section className="quality" id="kwaliteit">
           <Reveal>
-            <div className="section-head">
-              <p className="label">Waarom YUS</p>
-              <h2>Een rustige uitvoering begint bij duidelijke communicatie.</h2>
+            <div className="quality-copy">
+              <p className="kicker">Kwaliteit</p>
+              <h2>De uitstraling van nieuwbouw, zonder het gedoe eromheen.</h2>
+              <p>Een goede klus voelt niet chaotisch. U weet wie komt, wat er gebeurt en hoe het wordt opgeleverd.</p>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="value-grid">
+            <div className="quality-grid">
               {values.map((value) => (
                 <span key={value}><Check size={18} /> {value}</span>
               ))}
@@ -178,67 +196,56 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <section className="work-section" id="projecten">
+        <section className="story">
           <Reveal>
-            <div className="section-head invert">
-              <p className="label">Werk</p>
-              <h2>Een sterke basis, strak zichtbaar resultaat.</h2>
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1800&q=86" alt="Modern afgewerkte badkamer" />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="story-card">
+              <p className="kicker">Projectaanpak</p>
+              <h2>Geen losse klusjes. Een afwerking die klopt als geheel.</h2>
+              <p>Van voorbereiding tot laatste rand: YUS denkt mee over volgorde, materiaal en oplevering. Zo blijft het proces rustig en het resultaat professioneel.</p>
+              <a href="#offerte">Bespreek uw project <ArrowRight size={18} /></a>
             </div>
           </Reveal>
-          <div className="project-grid">
-            {projects.map(([title, place, text, image], index) => (
-              <Reveal key={title} delay={index * 0.05}>
-                <article className="project-card">
-                  <img src={image} alt={`${title} in ${place}`} />
-                  <div>
-                    <span>{place}</span>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </section>
 
-        <section className="section split" id="proces">
+        <section className="section process" id="proces">
           <Reveal>
             <div className="section-head">
-              <p className="label">Proces</p>
-              <h2>Geen ingewikkeld traject. Gewoon goed geregeld.</h2>
+              <p className="kicker">Proces</p>
+              <h2>Helder van eerste bericht tot oplevering.</h2>
             </div>
           </Reveal>
-          <div className="steps">
+          <div className="process-grid">
             {steps.map(([number, title, text], index) => (
-              <Reveal key={title} delay={index * 0.04}>
+              <Reveal key={title} delay={index * 0.05}>
                 <article>
                   <strong>{number}</strong>
-                  <div>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
                 </article>
               </Reveal>
             ))}
           </div>
         </section>
 
-        <section className="quote-section">
+        <section className="testimonial">
           <Reveal>
-            <div className="quote-card">
+            <div>
               <div className="stars">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={18} fill="currentColor" />)}</div>
-              <blockquote>"Netjes gewerkt, duidelijk gecommuniceerd en alles schoon achtergelaten."</blockquote>
+              <blockquote>"Duidelijk, netjes en precies afgewerkt. Je merkt dat er aandacht is voor het hele proces."</blockquote>
               <p>Particuliere klant - Utrecht</p>
             </div>
           </Reveal>
         </section>
 
-        <section className="section form-section" id="offerte">
+        <section className="section quote-layout" id="offerte">
           <Reveal>
             <div className="section-head">
-              <p className="label">Offerte</p>
-              <h2>Vertel wat er moet gebeuren.</h2>
-              <p>Stuur uw aanvraag. We reageren snel met een duidelijke vervolgstap.</p>
+              <p className="kicker">Offerte</p>
+              <h2>Vertel wat er moet gebeuren. Wij maken het concreet.</h2>
+              <p>Beschrijf de klus kort. Voeg later foto's toe via WhatsApp als dat handig is.</p>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
@@ -256,16 +263,16 @@ export default function Home() {
                 <option>Renovatie</option>
               </select>
               <textarea name="bericht" rows="5" placeholder="Korte omschrijving van de klus" />
-              <button className="button primary" type="submit">Verstuur aanvraag <ArrowRight size={18} /></button>
+              <button className="button dark" type="submit">Verstuur aanvraag <ArrowRight size={18} /></button>
             </form>
           </Reveal>
         </section>
 
-        <section className="section faq-section">
+        <section className="section faq">
           <Reveal>
-            <div className="section-head">
-              <p className="label">FAQ</p>
-              <h2>Veelgestelde vragen.</h2>
+            <div className="section-head centered">
+              <p className="kicker">FAQ</p>
+              <h2>Goed om te weten.</h2>
             </div>
           </Reveal>
           <div className="faq-list">
@@ -280,10 +287,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="contact-band" id="contact">
+        <section className="contact" id="contact">
           <div>
-            <p className="label">Contact</p>
-            <h2>Klaar om uw klus te bespreken?</h2>
+            <p className="kicker">Contact</p>
+            <h2>Klaar om uw ruimte beter te maken?</h2>
           </div>
           <div className="contact-links">
             <a href={`tel:${phone.replaceAll(" ", "")}`}><Phone size={18} /> {phone}</a>

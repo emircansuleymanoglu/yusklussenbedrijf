@@ -1,0 +1,31 @@
+{
+  "name": "yusklussenbedrijf",
+  "version": "1.0.0",
+  "description": "Premium Dutch-first website for Yus Klussenbedrijf.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emircansuleymanoglu/yusklussenbedrijf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/emircansuleymanoglu/yusklussenbedrijf/issues"
+  },
+  "homepage": "https://github.com/emircansuleymanoglu/yusklussenbedrijf#readme",
+  "dependencies": {
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.8.0",
+    "next": "^16.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  }
+}

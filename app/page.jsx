@@ -12,14 +12,24 @@ import {
   Paintbrush,
   Phone,
   Ruler,
-  ShieldCheck,
   Sparkles,
   Star,
 } from "lucide-react";
 
+function InstagramIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 const phone = "+31 6 21547256";
 const whatsapp = "https://wa.me/31621547256";
 const email = "info@yusklussenbedrijf.nl";
+const instagramPage = "/instagram";
 
 const services = [
   {
@@ -132,6 +142,7 @@ export default function Home() {
           <motion.div className="hero-actions" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
             <a className="button dark" href="#offerte">Vraag offerte aan <ArrowRight size={17} /></a>
             <a className="button light" href={whatsapp}><MessageCircle size={17} /> WhatsApp</a>
+            <a className="button instagram" href={instagramPage}><InstagramIcon size={17} /> Instagram</a>
           </motion.div>
 
           <motion.div className="showcase" initial={{ opacity: 0, y: 26, scale: 0.987 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>

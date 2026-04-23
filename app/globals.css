@@ -1001,9 +1001,7 @@ details p {
   }
 
   .showcase-panel {
-    position: static;
-    width: auto;
-    margin: 8px;
+    display: none;
   }
 
   .metrics {

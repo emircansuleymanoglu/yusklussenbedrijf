@@ -1,10 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   Check,
-  Clock3,
   Heater,
   Mail,
   MapPin,
@@ -17,8 +17,8 @@ import {
   Star,
 } from "lucide-react";
 
-const phone = "+31 6 12345678";
-const whatsapp = "https://wa.me/31612345678";
+const phone = "+31 6 21547256";
+const whatsapp = "https://wa.me/31621547256";
 const email = "info@yusklussenbedrijf.nl";
 
 const services = [
@@ -72,7 +72,7 @@ const faqs = [
 ];
 
 const reveal = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 },
 };
 
@@ -83,9 +83,9 @@ function Reveal({ children, delay = 0 }) {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-90px" }}
+      viewport={{ once: true, margin: "-80px" }}
       variants={reveal}
-      transition={{ duration: reduceMotion ? 0 : 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: reduceMotion ? 0 : 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -93,6 +93,16 @@ function Reveal({ children, delay = 0 }) {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.type = "module";
+    s.src = "https://w.behold.so/widget.js";
+    document.head.appendChild(s);
+    return () => {
+      if (document.head.contains(s)) document.head.removeChild(s);
+    };
+  }, []);
+
   return (
     <>
       <header className="site-header">
@@ -110,21 +120,21 @@ export default function Home() {
 
       <main>
         <section className="hero">
-          <motion.p className="announcement" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.p className="announcement" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
             Premium afwerking voor woningen, verhuurpanden en bedrijfsruimtes.
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
+          <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
             Van klus naar klasse.
           </motion.h1>
-          <motion.p className="hero-lead" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }}>
+          <motion.p className="hero-lead" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }}>
             YUS Klussenbedrijf maakt ruimtes zichtbaar beter met strak stucwerk, schilderwerk, timmerwerk en vloerverwarming. Rustig geregeld, scherp uitgevoerd.
           </motion.p>
-          <motion.div className="hero-actions" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
-            <a className="button dark" href="#offerte">Vraag offerte aan <ArrowRight size={18} /></a>
-            <a className="button light" href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
+          <motion.div className="hero-actions" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
+            <a className="button dark" href="#offerte">Vraag offerte aan <ArrowRight size={17} /></a>
+            <a className="button light" href={whatsapp}><MessageCircle size={17} /> WhatsApp</a>
           </motion.div>
 
-          <motion.div className="showcase" initial={{ opacity: 0, y: 28, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div className="showcase" initial={{ opacity: 0, y: 26, scale: 0.987 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=88" alt="Luxe afgewerkte woonruimte" />
             <div className="showcase-panel left">
               <span>Reactie</span>
@@ -168,7 +178,7 @@ export default function Home() {
                   <article className={`service-card service-${index + 1}`}>
                     <img src={service.image} alt={service.title} />
                     <div>
-                      <Icon size={24} />
+                      <Icon size={22} />
                       <h3>{service.title}</h3>
                       <p>{service.text}</p>
                     </div>
@@ -190,7 +200,7 @@ export default function Home() {
           <Reveal delay={0.08}>
             <div className="quality-grid">
               {values.map((value) => (
-                <span key={value}><Check size={18} /> {value}</span>
+                <span key={value}><Check size={17} /> {value}</span>
               ))}
             </div>
           </Reveal>
@@ -205,7 +215,7 @@ export default function Home() {
               <p className="kicker">Projectaanpak</p>
               <h2>Geen losse klusjes. Een afwerking die klopt als geheel.</h2>
               <p>Van voorbereiding tot laatste rand: YUS denkt mee over volgorde, materiaal en oplevering. Zo blijft het proces rustig en het resultaat professioneel.</p>
-              <a href="#offerte">Bespreek uw project <ArrowRight size={18} /></a>
+              <a href="#offerte">Bespreek uw project <ArrowRight size={16} /></a>
             </div>
           </Reveal>
         </section>
@@ -233,11 +243,22 @@ export default function Home() {
         <section className="testimonial">
           <Reveal>
             <div>
-              <div className="stars">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={18} fill="currentColor" />)}</div>
+              <div className="stars">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={17} fill="currentColor" />)}</div>
               <blockquote>"Duidelijk, netjes en precies afgewerkt. Je merkt dat er aandacht is voor het hele proces."</blockquote>
-              <p>Particuliere klant - Utrecht</p>
+              <p>Particuliere klant — Utrecht</p>
             </div>
           </Reveal>
+        </section>
+
+        <section className="section instagram" id="instagram">
+          <Reveal>
+            <div className="section-head centered">
+              <p className="kicker">Instagram</p>
+              <h2>Ons werk in beeld.</h2>
+              <p>Volg ons op Instagram voor de nieuwste projecten en afwerkingen.</p>
+            </div>
+          </Reveal>
+          <behold-widget feed-id="WemjYi2rgmEWiMXnbiEi"></behold-widget>
         </section>
 
         <section className="section quote-layout" id="offerte">
@@ -263,7 +284,7 @@ export default function Home() {
                 <option>Renovatie</option>
               </select>
               <textarea name="bericht" rows="5" placeholder="Korte omschrijving van de klus" />
-              <button className="button dark" type="submit">Verstuur aanvraag <ArrowRight size={18} /></button>
+              <button className="button dark" type="submit">Verstuur aanvraag <ArrowRight size={17} /></button>
             </form>
           </Reveal>
         </section>
@@ -293,22 +314,22 @@ export default function Home() {
             <h2>Klaar om uw ruimte beter te maken?</h2>
           </div>
           <div className="contact-links">
-            <a href={`tel:${phone.replaceAll(" ", "")}`}><Phone size={18} /> {phone}</a>
-            <a href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
-            <a href={`mailto:${email}`}><Mail size={18} /> {email}</a>
-            <span><MapPin size={18} /> Nederland</span>
+            <a href={`tel:${phone.replaceAll(" ", "")}`}><Phone size={17} /> {phone}</a>
+            <a href={whatsapp}><MessageCircle size={17} /> WhatsApp</a>
+            <a href={`mailto:${email}`}><Mail size={17} /> {email}</a>
+            <span><MapPin size={17} /> Nederland</span>
           </div>
         </section>
       </main>
 
       <footer className="site-footer">
         <img src="/yus-logo-cropped.png" alt="YUS Klussenbedrijf" />
-        <span>Stucwerk - Schilderwerk - Timmerwerk - Vloerverwarming</span>
-        <span>Copyright 2026</span>
+        <span>Stucwerk · Schilderwerk · Timmerwerk · Vloerverwarming</span>
+        <span>© 2026 YUS Klussenbedrijf</span>
       </footer>
 
       <div className="mobile-cta">
-        <a href={whatsapp}><MessageCircle size={18} /> WhatsApp</a>
+        <a href={whatsapp}><MessageCircle size={17} /> WhatsApp</a>
         <a href="#offerte">Offerte</a>
       </div>
     </>

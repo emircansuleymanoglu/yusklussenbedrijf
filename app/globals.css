@@ -141,6 +141,7 @@ textarea {
 }
 
 .button.instagram {
+  height: 50px;
   background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   color: #fff;
   border: none;
@@ -988,6 +989,7 @@ details p {
   }
 
   .hero-actions .button {
+    height: 50px;
     width: 100%;
     justify-content: center;
   }

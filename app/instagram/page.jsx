@@ -27,7 +27,7 @@ const HANDLE = "@yus.klussenbedrijf";
   4. Vervang de waarde van BEHOLD_FEED_ID hieronder door jouw Feed ID.
   ─────────────────────────────────────────────────────────────────
 */
-const BEHOLD_FEED_ID = ""; // <-- hier jouw Behold Feed ID plakken
+const BEHOLD_FEED_ID = "WemjYi2rgmEWiMXnbiEi";
 
 function BeholdWidget() {
   const containerRef = useRef(null);

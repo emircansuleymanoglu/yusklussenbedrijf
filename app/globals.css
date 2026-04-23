@@ -92,7 +92,7 @@ textarea {
 
 .nav-button,
 .button {
-  min-height: 46px;
+  height: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -100,6 +100,7 @@ textarea {
   border: 0;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 200ms ease;
 }
 
@@ -220,6 +221,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 12px;
   margin-top: 38px;
 }

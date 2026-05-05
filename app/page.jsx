@@ -36,25 +36,25 @@ const services = [
     title: "Stucwerk",
     text: "Wanden en plafonds strak, rustig en klaar voor de volgende laag.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=86",
+    image: "/work/image00032.png",
   },
   {
     title: "Schilderwerk",
     text: "Binnen en buiten schilderwerk met scherpe lijnen en duurzame voorbereiding.",
     icon: Paintbrush,
-    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=86",
+    image: "/work/image00029.png",
   },
   {
     title: "Timmerwerk",
     text: "Aftimmering, deuren, kozijnen en maatwerk dat voelt alsof het er altijd hoorde.",
     icon: Ruler,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=86",
+    image: "/work/image00006.png",
   },
   {
     title: "Vloerverwarming",
     text: "Comfort onder de vloer, netjes voorbereid en afgewerkt voor renovatie.",
     icon: Heater,
-    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=86",
+    image: "/work/image00009.png",
   },
 ];
 
@@ -72,6 +72,24 @@ const steps = [
   ["02", "We maken het concreet", "Materiaal, timing en aanpak worden helder besproken."],
   ["03", "U krijgt een offerte", "Duidelijke prijs en planning voordat we starten."],
   ["04", "Netjes opgeleverd", "We werken rustig, schoon en met aandacht voor detail."],
+];
+
+const results = [
+  {
+    title: "Before / after badkamer",
+    text: "Van ruw werk naar een schone, bruikbare badkamerafwerking.",
+    image: "/work/image00041.jpeg",
+  },
+  {
+    title: "Before / after plafond en wand",
+    text: "Strakker lijnwerk en een zichtbaar rustiger eindbeeld.",
+    image: "/work/image00042.jpeg",
+  },
+  {
+    title: "Before / after kamerafwerking",
+    text: "Een ruimte die direct lichter, strakker en verzorgder voelt.",
+    image: "/work/image00043.jpeg",
+  },
 ];
 
 const faqs = [
@@ -145,8 +163,8 @@ export default function Home() {
             <a className="button instagram" href={instagramPage}><InstagramIcon size={17} /> Instagram</a>
           </motion.div>
 
-          <motion.div className="showcase" initial={{ opacity: 0, y: 26, scale: 0.987 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=88" alt="Luxe afgewerkte woonruimte" />
+          <motion.div className="showcase" initial={{ opacity: 0, y: 28, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            <img src="/work/image00043.jpeg" alt="Before en after project van YUS Klussenbedrijf" />
             <div className="showcase-panel left">
               <span>Reactie</span>
               <strong>Binnen 24 uur</strong>
@@ -219,16 +237,39 @@ export default function Home() {
 
         <section className="story">
           <Reveal>
-            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1800&q=86" alt="Modern afgewerkte badkamer" />
+            <img src="/work/image00041.jpeg" alt="Before en after badkamerproject van YUS Klussenbedrijf" />
           </Reveal>
           <Reveal delay={0.1}>
             <div className="story-card">
               <p className="kicker">Projectaanpak</p>
-              <h2>Geen losse klusjes. Een afwerking die klopt als geheel.</h2>
-              <p>Van voorbereiding tot laatste rand: YUS denkt mee over volgorde, materiaal en oplevering. Zo blijft het proces rustig en het resultaat professioneel.</p>
-              <a href="#offerte">Bespreek uw project <ArrowRight size={16} /></a>
+              <h2>Echte projecten. Echte vooruitgang.</h2>
+              <p>Geen stockverhaal, maar zichtbaar resultaat uit echte woningen en verbouwingen. Dat geeft vertrouwen nog voordat er een offerte is verstuurd.</p>
+              <a href="#offerte">Bespreek uw project <ArrowRight size={18} /></a>
             </div>
           </Reveal>
+        </section>
+
+        <section className="section results">
+          <Reveal>
+            <div className="section-head centered">
+              <p className="kicker">Resultaat</p>
+              <h2>Werk dat zichzelf uitlegt.</h2>
+              <p>Een paar voorbeelden waarbij het verschil meteen duidelijk is.</p>
+            </div>
+          </Reveal>
+          <div className="results-grid">
+            {results.map((result, index) => (
+              <Reveal key={result.title} delay={index * 0.05}>
+                <article className="result-card">
+                  <img src={result.image} alt={result.title} />
+                  <div>
+                    <h3>{result.title}</h3>
+                    <p>{result.text}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </section>
 
         <section className="section process" id="proces">
@@ -256,7 +297,7 @@ export default function Home() {
             <div>
               <div className="stars">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={17} fill="currentColor" />)}</div>
               <blockquote>"Duidelijk, netjes en precies afgewerkt. Je merkt dat er aandacht is voor het hele proces."</blockquote>
-              <p>Particuliere klant — Utrecht</p>
+              <p>Particuliere klant - Utrecht</p>
             </div>
           </Reveal>
         </section>
@@ -335,8 +376,8 @@ export default function Home() {
 
       <footer className="site-footer">
         <img src="/yus-logo-cropped.png" alt="YUS Klussenbedrijf" />
-        <span>Stucwerk · Schilderwerk · Timmerwerk · Vloerverwarming</span>
-        <span>© 2026 YUS Klussenbedrijf</span>
+        <span>Stucwerk - Schilderwerk - Timmerwerk - Vloerverwarming</span>
+        <span>Copyright 2026 YUS Klussenbedrijf</span>
       </footer>
 
       <div className="mobile-cta">

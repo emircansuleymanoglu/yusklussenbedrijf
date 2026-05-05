@@ -148,32 +148,36 @@ export default function Home() {
 
       <main>
         <section className="hero">
-          <motion.p className="announcement" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-            Premium afwerking voor woningen, verhuurpanden en bedrijfsruimtes.
-          </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
-            Van klus naar klasse.
-          </motion.h1>
-          <motion.p className="hero-lead" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }}>
-            YUS Klussenbedrijf maakt ruimtes zichtbaar beter met strak stucwerk, schilderwerk, timmerwerk en vloerverwarming. Rustig geregeld, scherp uitgevoerd.
-          </motion.p>
-          <motion.div className="hero-actions" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
-            <a className="button dark" href="#offerte">Vraag offerte aan <ArrowRight size={17} /></a>
-            <a className="button light" href={whatsapp}><MessageCircle size={17} /> WhatsApp</a>
-            <a className="button instagram" href={instagramPage}><InstagramIcon size={17} /> Instagram</a>
-          </motion.div>
+          <div className="hero-shell">
+            <div className="hero-copy">
+              <motion.p className="announcement" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                Premium afwerking voor woningen, verhuurpanden en bedrijfsruimtes.
+              </motion.p>
+              <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
+                Van klus naar klasse.
+              </motion.h1>
+              <motion.p className="hero-lead" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }}>
+                YUS Klussenbedrijf maakt ruimtes zichtbaar beter met strak stucwerk, schilderwerk, timmerwerk en vloerverwarming. Rustig geregeld, scherp uitgevoerd.
+              </motion.p>
+              <motion.div className="hero-actions" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
+                <a className="button dark" href="#offerte">Vraag offerte aan <ArrowRight size={17} /></a>
+                <a className="button light" href={whatsapp}><MessageCircle size={17} /> WhatsApp</a>
+                <a className="button instagram" href={instagramPage}><InstagramIcon size={17} /> Instagram</a>
+              </motion.div>
+            </div>
 
-          <motion.div className="showcase" initial={{ opacity: 0, y: 28, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-            <img src="/work/image00043.jpeg" alt="Before en after project van YUS Klussenbedrijf" />
-            <div className="showcase-panel left">
-              <span>Reactie</span>
-              <strong>Binnen 24 uur</strong>
-            </div>
-            <div className="showcase-panel right">
-              <span>Specialisaties</span>
-              <strong>Stuc / Schilder / Timmer / Vloer</strong>
-            </div>
-          </motion.div>
+            <motion.div className="showcase" initial={{ opacity: 0, y: 28, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+              <img src="/work/image00043.jpeg" alt="Before en after project van YUS Klussenbedrijf" />
+              <div className="showcase-panel left">
+                <span>Reactie</span>
+                <strong>Binnen 24 uur</strong>
+              </div>
+              <div className="showcase-panel right">
+                <span>Specialisaties</span>
+                <strong>Stuc / Schilder / Timmer / Vloer</strong>
+              </div>
+            </motion.div>
+          </div>
         </section>
 
         <section className="metrics" aria-label="Kerncijfers">

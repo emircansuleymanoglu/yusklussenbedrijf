@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -14,6 +15,7 @@ import {
   Ruler,
   Sparkles,
   Star,
+  Zap,
 } from "lucide-react";
 
 function InstagramIcon({ size = 18 }) {
@@ -43,28 +45,39 @@ const instagramPage = "/instagram";
 
 const services = [
   {
-    title: "Stucwerk",
-    text: "Strakke wanden en plafonds die de ruimte direct rustiger en waardevoller laten voelen.",
-    image: "/work/image00032.png",
+    title: "Stucwerk & Pleisterwerk",
+    text: "Strak afgewerkte muren en plafonds. Sausklaar, behangklaar en decoratief stucwerk.",
+    image: "/work/stock-walls.jpg",
     icon: Sparkles,
+    link: "/stucwerk",
   },
   {
-    title: "Schilderwerk",
-    text: "Net lijnwerk, goede voorbereiding en een afwerking die niet goedkoop oogt maar verzorgd blijft.",
-    image: "/work/image00029.png",
+    title: "Schilderwerk Binnen & Buiten",
+    text: "Professioneel schilderwerk voor een perfecte afwerking en optimale bescherming van uw woning.",
+    image: "/work/real-stucwerk-1.webp",
     icon: Paintbrush,
+    link: "/schilderwerk",
   },
   {
-    title: "Timmerwerk",
-    text: "Aftimmering, kozijnen en detailwerk dat precies aansluit op de rest van het interieur.",
-    image: "/work/image00006.png",
+    title: "Timmerwerk op Maat",
+    text: "Vakkundig timmerwerk. Van inbouwkasten tot deuren, kozijnen en houtbouw voor buiten.",
+    image: "/work/real-timmer-1.webp",
     icon: Ruler,
+    link: "/timmerwerk",
   },
   {
-    title: "Vloerverwarming",
-    text: "Comfort en afwerking in een traject, zorgvuldig meegenomen in renovatie en oplevering.",
-    image: "/work/image00009.png",
+    title: "Vloerverwarming Installatie",
+    text: "Comfortabel en energiezuinig verwarmen. Vakkundig ingefreesd of op krimpnetten gelegd.",
+    image: "/work/stock-livingroom.jpg",
     icon: Heater,
+    link: "/vloerverwarming",
+  },
+  {
+    title: "Elektrotechniek",
+    text: "Veilige installaties, groepenkasten vervangen en modern schakelmateriaal monteren.",
+    image: "/work/real-elektra-1.webp",
+    icon: Zap,
+    link: "/elektrotechniek",
   },
 ];
 
@@ -100,22 +113,22 @@ const steps = [
 
 const showcases = [
   {
-    eyebrow: "Badkamer",
+    eyebrow: "Badkamer & Toilet",
     title: "Van ruw naar verzorgd.",
     text: "Een complete upgrade in uitstraling door strakkere afwerking, betere lijnen en een schoner eindbeeld.",
-    image: "/work/image00041.jpeg",
+    image: "/work/real-badkamer-1.webp",
   },
   {
-    eyebrow: "Wanden en plafond",
+    eyebrow: "Interieur & Details",
     title: "Rust in elke hoek van de ruimte.",
     text: "Precies dat verschil waardoor een kamer niet alleen nieuw oogt, maar ook beter aanvoelt.",
-    image: "/work/image00042.jpeg",
+    image: "/work/stock-bathroom.jpg",
   },
   {
-    eyebrow: "Woonruimte",
+    eyebrow: "Woonruimte & Verlichting",
     title: "Meer licht, meer klasse.",
     text: "Goede afwerking maakt een ruimte groter, schoner en duidelijk waardevoller in beleving.",
-    image: "/work/image00043.jpeg",
+    image: "/work/stock-lighting.jpg",
   },
 ];
 
@@ -179,23 +192,6 @@ export default function Home() {
 
   return (
     <>
-      <header className="site-header">
-        <a className="brand" href="#" aria-label="YUS Klussenbedrijf">
-          <img src="/yus-logo-cropped.png" alt="YUS Klussenbedrijf" />
-        </a>
-
-        <nav aria-label="Hoofdnavigatie">
-          <a href="#diensten">Diensten</a>
-          <a href="#werk">Werk</a>
-          <a href="#werkwijze">Werkwijze</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <a className="nav-button" href="#offerte">
-          Offerte aanvragen
-        </a>
-      </header>
-
       <main>
         <section className="hero">
           <div className="hero-shell">
@@ -213,7 +209,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 }}
               >
-                Vakwerk dat direct meer klasse aan een ruimte geeft.
+                Vakmanschap voor elke renovatie.
               </motion.h1>
 
               <motion.p
@@ -222,8 +218,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.16 }}
               >
-                YUS Klussenbedrijf combineert stucwerk, schilderwerk, timmerwerk en
-                vloerverwarming in een rustige, strakke en professionele oplevering.
+                Van strak stucwerk en perfect schilderwerk tot complete renovaties. Wij realiseren uw woonwensen met precisie en kwaliteit.
               </motion.p>
 
               <motion.div
@@ -254,7 +249,7 @@ export default function Home() {
                   <span>reactie op nieuwe aanvragen</span>
                 </div>
                 <div>
-                  <strong>4</strong>
+                  <strong>5</strong>
                   <span>sterke specialisaties onder een naam</span>
                 </div>
                 <div>
@@ -272,26 +267,26 @@ export default function Home() {
             >
               <div className="hero-panel main">
                 <img
-                  src="/work/image00043.jpeg"
-                  alt="Before en after project van YUS Klussenbedrijf"
+                  src="/work/stock-livingroom.jpg"
+                  alt="Premium project van YUS Klussenbedrijf"
                 />
                 <div className="panel-copy">
-                  <span>Voor en na</span>
+                  <span>Vakmanschap</span>
                   <strong>Echt werk. Echt verschil.</strong>
                 </div>
               </div>
 
               <div className="hero-panel secondary top">
                 <img
-                  src="/work/image00041.jpeg"
-                  alt="Badkamer renovatie door YUS Klussenbedrijf"
+                  src="/work/real-stucwerk-1.webp"
+                  alt="Strakke wand en plafond afwerking door YUS Klussenbedrijf"
                 />
               </div>
 
               <div className="hero-panel secondary bottom">
                 <img
-                  src="/work/image00042.jpeg"
-                  alt="Strakke wand en plafond afwerking door YUS Klussenbedrijf"
+                  src="/work/stock-walls.jpg"
+                  alt="Badkamer renovatie door YUS Klussenbedrijf"
                 />
               </div>
             </motion.div>
@@ -331,7 +326,7 @@ export default function Home() {
               const Icon = service.icon;
               return (
                 <Reveal key={service.title} delay={index * 0.05}>
-                  <article className="service-card">
+                  <Link href={service.link} className="service-card" style={{ display: "block" }}>
                     <img src={service.image} alt={service.title} />
                     <div className="service-tint" />
                     <div className="service-copy">
@@ -339,7 +334,7 @@ export default function Home() {
                       <h3>{service.title}</h3>
                       <p>{service.text}</p>
                     </div>
-                  </article>
+                  </Link>
                 </Reveal>
               );
             })}
@@ -498,10 +493,11 @@ export default function Home() {
                   <option value="" disabled>
                     Dienst kiezen
                   </option>
-                  <option>Stucwerk</option>
-                  <option>Schilderwerk</option>
-                  <option>Timmerwerk</option>
+                  <option>Stucwerk & Pleisterwerk</option>
+                  <option>Schilderwerk Binnen & Buiten</option>
+                  <option>Timmerwerk op Maat</option>
                   <option>Vloerverwarming</option>
+                  <option>Elektrotechniek</option>
                   <option>Renovatie</option>
                 </select>
                 <textarea
@@ -561,19 +557,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="site-footer">
-        <img src="/yus-logo-cropped.png" alt="YUS Klussenbedrijf" />
-        <span>Stucwerk, schilderwerk, timmerwerk en vloerverwarming</span>
-        <span>Copyright 2026 YUS Klussenbedrijf</span>
-      </footer>
-
-      <div className="mobile-cta">
-        <a href={whatsapp}>
-          <MessageCircle size={17} /> WhatsApp
-        </a>
-        <a href="#offerte">Offerte</a>
-      </div>
     </>
   );
 }
